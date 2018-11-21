@@ -1,0 +1,42 @@
+<html>
+    <head>
+        {{ scripttag "jquery-js" }}
+        {{ scripttag "common-js" }}
+        {{ scripttag "home-js" }}
+    </head>
+<body>
+
+{{ if .Authenticated}}
+  <h1>Hello, {{ .UserName }}</h1>
+{{ else }}
+<h1>You are currently not logged in</h1>
+{{ end }}
+
+<p>My first paragraph.</p>
+
+<form action="/login" method="post" onsubmit="return login_request(this)" id="form_data">
+    <div class="imgcontainer">
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+  
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Email" name="useremail" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+  
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form> 
+
+</body>
+</html>
